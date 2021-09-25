@@ -172,23 +172,23 @@ switch ($Version)
 	}
 	"LTSC"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) LTSC v$LatestRelease"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) LTSC v$LatestRelease"
 	}
 	"Windows_10_PowerShell_5.1"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease"
 	}
 	"Windows_10_PowerShell_7"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease PowerShell 7"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease PowerShell 7"
 	}
 	"Windows_11_PowerShell_5.1"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease"
 	}
 	"Windows_11_PowerShell_7"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease PowerShell 7"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease PowerShell 7"
 	}
 }
 
