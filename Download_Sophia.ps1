@@ -32,7 +32,7 @@ $DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows
 if ($Wrapper)
 {
 	$Parameters = @{
-		Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/sophia_script_versions.json"
+		Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/irm/sophia_script_versions.json"
 		UseBasicParsing  = $true
 	}
 	$LatestRelease = (Invoke-RestMethod @Parameters).Sophia_Script_Wrapper
@@ -91,8 +91,6 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 				UseBasicParsing = $true
 				Verbose         = $true
 			}
-
-			$Version = "Windows_10_PowerShell_5.1"
 		}
 		else
 		{
