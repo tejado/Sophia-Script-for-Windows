@@ -26,7 +26,7 @@ $Parameters = @{
 	Uri              = "https://api.github.com/repos/farag2/Sophia-Script-for-Windows/releases/latest"
 	UseBasicParsing   = $true
 }
-$LatestGitHubRelease = (Invoke-RestMethod @Parameters).tag_name
+$LatestGitHubRelease = "5.12.4" # (Invoke-RestMethod @Parameters).tag_name
 $DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
 
 if ($Wrapper)
