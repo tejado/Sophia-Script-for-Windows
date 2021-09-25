@@ -44,6 +44,8 @@ if ($Wrapper)
 	}
 	Invoke-WebRequest @Parameters
 
+	$Version = "Wrapper"
+
 	$Parameters = @{
 		Path            = "$DownloadsFolder\Sophia.Script.Wrapper.zip"
 		DestinationPath = "$DownloadsFolder"
@@ -75,6 +77,8 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 			UseBasicParsing = $true
 			Verbose         = $true
 		}
+
+		$Version = "LTSC"
 	}
 	{($_ -ge 19041) -and ($_ -le 19044)}
 	{
@@ -91,6 +95,8 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 				UseBasicParsing = $true
 				Verbose         = $true
 			}
+
+			$Version = "Windows_10_PowerShell_5.1"
 		}
 		else
 		{
@@ -105,6 +111,8 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 				UseBasicParsing = $true
 				Verbose         = $true
 			}
+
+			$Version = "Windows_10_PowerShell_7"
 		}
 	}
 	"22000"
@@ -122,6 +130,8 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 				UseBasicParsing = $true
 				Verbose         = $true
 			}
+
+			$Version = "Windows_11_PowerShell_5.1"
 		}
 		else
 		{
@@ -136,6 +146,8 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 				UseBasicParsing = $true
 				Verbose         = $true
 			}
+
+			$Version = "Windows_11_PowerShell_5.1"
 		}
 	}
 }
@@ -152,7 +164,33 @@ Remove-Item -Path "$DownloadsFolder\Sophia.Script.zip" -Force
 
 Start-Sleep -Second 1
 
-Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) v$LatestGitHubRelease *"
+switch ($Version)
+{
+	"Wrapper"
+	{
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script Wrapper v$LatestGitHubRelease"
+	}
+	"LTSC"
+	{
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) LTSC v$LatestRelease"
+	}
+	"Windows_10_PowerShell_5.1"
+	{
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease"
+	}
+	"Windows_10_PowerShell_7"
+	{
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease PowerShell 7"
+	}
+	"Windows_11_PowerShell_5.1"
+	{
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease"
+	}
+	"Windows_11_PowerShell_7"
+	{
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease PowerShell 7"
+	}
+}
 
 $SetForegroundWindow = @{
 	Namespace = "WinAPI"
