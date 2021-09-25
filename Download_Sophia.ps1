@@ -65,7 +65,7 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 	"17763"
 	{
 		$Parameters = @{
-			Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/sophia_script_versions.json"
+			Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/irm/sophia_script_versions.json"
 			UseBasicParsing  = $true
 		}
 		$LatestRelease = (Invoke-RestMethod @Parameters).Sophia_Script_Windows_10_LTSC
@@ -81,7 +81,7 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 		if ($PSVersionTable.PSVersion.Major -eq 5)
 		{
 			$Parameters = @{
-				Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/sophia_script_versions.json"
+				Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/irm/sophia_script_versions.json"
 				UseBasicParsing  = $true
 			}
 			$LatestRelease = (Invoke-RestMethod @Parameters).Sophia_Script_Windows_10_PowerShell_5_1
@@ -95,7 +95,7 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 		else
 		{
 			$Parameters = @{
-				Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/sophia_script_versions.json"
+				Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/irm/sophia_script_versions.json"
 				UseBasicParsing  = $true
 			}
 			$LatestRelease = (Invoke-RestMethod @Parameters).Sophia_Script_Windows_10_PowerShell_7
@@ -112,7 +112,7 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 		if ($PSVersionTable.PSVersion.Major -eq 5)
 		{
 			$Parameters = @{
-				Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/sophia_script_versions.json"
+				Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/irm/sophia_script_versions.json"
 				UseBasicParsing  = $true
 			}
 			$LatestRelease = (Invoke-RestMethod @Parameters).Sophia_Script_Windows_11_PowerShell_5_1
@@ -126,7 +126,7 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 		else
 		{
 			$Parameters = @{
-				Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/sophia_script_versions.json"
+				Uri              = "https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/irm/sophia_script_versions.json"
 				UseBasicParsing  = $true
 			}
 			$LatestRelease = (Invoke-RestMethod @Parameters).Sophia_Script_Windows_11_PowerShell_7
