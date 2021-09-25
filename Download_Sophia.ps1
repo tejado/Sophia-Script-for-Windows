@@ -147,7 +147,7 @@ switch ((Get-CimInstance -ClassName Win32_OperatingSystem).BuildNumber)
 				Verbose         = $true
 			}
 
-			$Version = "Windows_11_PowerShell_5.1"
+			$Version = "Windows_11_PowerShell_7"
 		}
 	}
 }
@@ -172,23 +172,23 @@ switch ($Version)
 	}
 	"LTSC"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) LTSC v$LatestRelease"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows 10 LTSC v$LatestRelease"
 	}
 	"Windows_10_PowerShell_5.1"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows 10 v$LatestRelease"
 	}
 	"Windows_10_PowerShell_7"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease PowerShell 7"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows 10 v$LatestRelease PowerShell 7"
 	}
 	"Windows_11_PowerShell_5.1"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows 11 v$LatestRelease"
 	}
 	"Windows_11_PowerShell_7"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows $($PSVersionTable.BuildVersion.Major) v$LatestRelease PowerShell 7"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script for Windows 11 v$LatestRelease PowerShell 7"
 	}
 }
 
@@ -209,7 +209,7 @@ if (-not ("WinAPI.ForegroundWindow" -as [type]))
 	Add-Type @SetForegroundWindow
 }
 
-Get-Process | Where-Object -FilterScript {$_.MainWindowTitle -eq "Sophia Script v$LatestGitHubRelease"} | ForEach-Object -Process {
+Get-Process | Where-Object -FilterScript {$_.MainWindowTitle -match "Sophia Script for Windows $([System.Environment]::OSVersion.Version.Major)"} | ForEach-Object -Process {
 	# Show window, if minimized
 	[WinAPI.ForegroundWindow]::ShowWindowAsync($_.MainWindowHandle, 5)
 
