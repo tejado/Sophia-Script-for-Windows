@@ -168,7 +168,7 @@ switch ($Version)
 {
 	"Wrapper"
 	{
-		Invoke-Item -Path "$DownloadsFolder\Sophia Script Wrapper v$LatestGitHubRelease"
+		Invoke-Item -Path "$DownloadsFolder\Sophia Script Wrapper v$LatestRelease"
 	}
 	"LTSC"
 	{
